@@ -2,6 +2,7 @@ package com.example.assignment1;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -13,13 +14,13 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button okbut, next1,next2,next3,next4,submit,clear;
+    Button okbut, next1,next2,next3,next4,next5,submit,clear;
     Switch swt1,swt2,swt3,swt4,swt5;
     boolean fever,rn,st,ba,ha;
     TextView name;
     LinearLayout ques,head,symp1,symp2,symp3,symp4,symp5;
     EditText entername;
-
+    String name2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,7 +29,8 @@ public class MainActivity extends AppCompatActivity {
         next2 = (Button)findViewById(R.id.button2);
         next3 = (Button)findViewById(R.id.button3);
         next4 = (Button)findViewById(R.id.button4);
-        submit = (Button)findViewById(R.id.button5);
+        next5 = (Button)findViewById(R.id.button5);
+        submit = (Button)findViewById(R.id.button6);
         clear = (Button)findViewById(R.id.button14);
         okbut = (Button)findViewById(R.id.button9);
         swt1 = (Switch) findViewById(R.id.switch1);
@@ -51,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String username = String.valueOf(entername.getText().toString());
+                name2 = username;
                 if (username.length()>0) {
                     name.setText("Hello " + username);
                     head.setVisibility(View.INVISIBLE);
@@ -105,14 +108,22 @@ public class MainActivity extends AppCompatActivity {
                 swt4.setEnabled(false);
             }
         });
+        next5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                next5.setText("saved");
+                symp5.setVisibility(View.VISIBLE);
+                ha=swt5.isChecked();
+                next5.setEnabled(false);
+                swt5.setEnabled(false);
+                submit.setVisibility(View.VISIBLE);
+
+            }
+        });
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                submit.setText("saved");
-                symp5.setVisibility(View.VISIBLE);
-                ha=swt5.isChecked();
-                submit.setEnabled(false);
-                swt5.setEnabled(false);
+                openactivity2();
             }
         });
         clear.setOnClickListener(new View.OnClickListener() {
@@ -148,14 +159,31 @@ public class MainActivity extends AppCompatActivity {
                 swt4.setChecked(false);
                 symp4.setVisibility(View.INVISIBLE);
 
+                next5.setText("Next");
+                next5.setEnabled(true);
+                swt5.setEnabled(true);
+                swt5.setChecked(false);
+                symp5.setVisibility(View.INVISIBLE);
+
                 name.setText("ENTER NAME BELOW ");
                 head.setVisibility(View.VISIBLE);
                 ques.setVisibility(View.INVISIBLE);
-
+                submit.setVisibility(View.INVISIBLE);
                 entername.setText("");
             }
         });
 
 
+    }
+
+    public void openactivity2() {
+        Intent intent = new Intent(this,MainActivity2.class);
+        intent.putExtra("name",name2);
+        intent.putExtra("fever",fever);
+        intent.putExtra("rn",rn);
+        intent.putExtra("st",st);
+        intent.putExtra("ba",ba);
+        intent.putExtra("ha",ha);
+        startActivity(intent);
     }
 }
