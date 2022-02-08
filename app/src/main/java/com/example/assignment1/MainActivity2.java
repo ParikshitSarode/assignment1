@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity2 extends AppCompatActivity {
 
@@ -18,7 +19,7 @@ public class MainActivity2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
         Button  resultbut = (Button) findViewById(R.id.button7);
-
+        Toast.makeText(this,"oncreateofSecondActivity",Toast.LENGTH_SHORT);
         TextView nameView = (TextView) findViewById(R.id.textView4);
         TextView res = (TextView) findViewById(R.id.textView5);
         int count = 0;
@@ -75,5 +76,48 @@ public class MainActivity2 extends AppCompatActivity {
 
 
 
+    }
+
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        Toast.makeText(this,"onstartof2ndActivity",Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        Toast.makeText(this,"onresumeof2ndActivity",Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+        Toast.makeText(this,"onpauseof2ndActivity",Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+
+        Toast.makeText(this,"onrestopof2ndActivity",Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        Toast.makeText(this,"ondestroyof2ndActivity",Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+
+        Toast.makeText(this,"onstopof2ndActivity",Toast.LENGTH_SHORT).show();
     }
 }
