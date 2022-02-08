@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class MainActivity2 extends AppCompatActivity {
@@ -15,10 +17,12 @@ public class MainActivity2 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
+        Button  resultbut = (Button) findViewById(R.id.button7);
 
         TextView nameView = (TextView) findViewById(R.id.textView4);
         TextView res = (TextView) findViewById(R.id.textView5);
         int count = 0;
+        res.setVisibility(View.INVISIBLE);
         String name = getIntent().getStringExtra("name");
         nameView.setText("HELLO "+name);
         Bundle feverb = getIntent().getExtras();
@@ -40,22 +44,35 @@ public class MainActivity2 extends AppCompatActivity {
         String s=String.valueOf(count);
         res.setText(s);
 
-        if (count>=3){
-            res.setText("Results - \nYou have "+s+ " symptoms. So you should get tested."+"\n\n"+" Your symptoms includes - ");
-            if (fever) res.append("You have fever.");
-            if (rn) res.append("\nYou have runny nose.");
-            if (st) res.append("\nYou have sore throat.");
-            if (ba) res.append("\nYou have body ache.");
-            if (ha) res.append("\nYou have head ache.");
-        }
-        else {
-            res.setText("Results - \nYou have just "+s+ " symptoms. So you should not get tested");
-            if (fever) res.append("\nYou have fever.");
-            if (rn) res.append("\nYou have runny nose.");
-            if (st) res.append("\nYou have sore throat.");
-            if (ba) res.append("\nYou have body ache.");
-            if (ha) res.append("\nYou have head ache.");
-        }
+        int finalCount = count;
+        resultbut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                res.setVisibility(View.VISIBLE);
+                resultbut.setVisibility(View.INVISIBLE);
+
+                if (finalCount >=3){
+                    res.setText("Results - \nYou have "+s+ " symptoms. So you should get tested."+"\n\n"+" Your symptoms includes - ");
+                    if (fever) res.append("You have fever.");
+                    if (rn) res.append("\nYou have runny nose.");
+                    if (st) res.append("\nYou have sore throat.");
+                    if (ba) res.append("\nYou have body ache.");
+                    if (ha) res.append("\nYou have head ache.");
+                }
+                else {
+                    res.setText("Results - \nYou have just "+s+ " symptoms. So you should not get tested");
+                    if (fever) res.append("\nYou have fever.");
+                    if (rn) res.append("\nYou have runny nose.");
+                    if (st) res.append("\nYou have sore throat.");
+                    if (ba) res.append("\nYou have body ache.");
+                    if (ha) res.append("\nYou have head ache.");
+                }
+
+
+            }
+        });
+
+
 
 
     }
