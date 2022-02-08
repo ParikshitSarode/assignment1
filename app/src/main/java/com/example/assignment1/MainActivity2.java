@@ -19,7 +19,7 @@ public class MainActivity2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
         Button  resultbut = (Button) findViewById(R.id.button7);
-        Toast.makeText(this,"oncreateofSecondActivity",Toast.LENGTH_SHORT);
+        Toast.makeText(this,"oncreateofSecondActivity",Toast.LENGTH_SHORT).show();
         TextView nameView = (TextView) findViewById(R.id.textView4);
         TextView res = (TextView) findViewById(R.id.textView5);
         int count = 0;

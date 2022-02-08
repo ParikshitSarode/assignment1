@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toast.makeText(this,"oncreateofFirstActivity",Toast.LENGTH_SHORT);
+        Toast.makeText(this,"oncreateofFirstActivity",Toast.LENGTH_SHORT).show();
         next1 = (Button) findViewById(R.id.button);
         next2 = (Button)findViewById(R.id.button2);
         next3 = (Button)findViewById(R.id.button3);
