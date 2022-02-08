@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -20,6 +21,7 @@ public class MainActivity2 extends AppCompatActivity {
         setContentView(R.layout.activity_main2);
         Button  resultbut = (Button) findViewById(R.id.button7);
         Toast.makeText(this,"oncreateofSecondActivity",Toast.LENGTH_SHORT).show();
+        Log.i(String.valueOf(1),"oncreateofSecondActivity");
         TextView nameView = (TextView) findViewById(R.id.textView4);
         TextView res = (TextView) findViewById(R.id.textView5);
         int count = 0;
@@ -84,6 +86,7 @@ public class MainActivity2 extends AppCompatActivity {
         super.onStart();
 
         Toast.makeText(this,"onstartof2ndActivity",Toast.LENGTH_SHORT).show();
+        Log.i(String.valueOf(2),"onstartofSecondActivity");
     }
 
     @Override
@@ -91,6 +94,7 @@ public class MainActivity2 extends AppCompatActivity {
         super.onResume();
 
         Toast.makeText(this,"onresumeof2ndActivity",Toast.LENGTH_SHORT).show();
+        Log.i(String.valueOf(3),"onresumeofSecondActivity");
     }
 
     @Override
@@ -98,6 +102,7 @@ public class MainActivity2 extends AppCompatActivity {
         super.onPause();
 
         Toast.makeText(this,"onpauseof2ndActivity",Toast.LENGTH_SHORT).show();
+        Log.i(String.valueOf(4),"onpauseofSecondActivity");
     }
 
     @Override
@@ -105,6 +110,7 @@ public class MainActivity2 extends AppCompatActivity {
         super.onRestart();
 
         Toast.makeText(this,"onrestopof2ndActivity",Toast.LENGTH_SHORT).show();
+        Log.i(String.valueOf(5),"onstopofSecondActivity");
     }
 
     @Override
@@ -112,6 +118,7 @@ public class MainActivity2 extends AppCompatActivity {
         super.onDestroy();
 
         Toast.makeText(this,"ondestroyof2ndActivity",Toast.LENGTH_SHORT).show();
+        Log.i(String.valueOf(6),"ondestroyofSecondActivity");
     }
 
     @Override
@@ -119,5 +126,6 @@ public class MainActivity2 extends AppCompatActivity {
         super.onStop();
 
         Toast.makeText(this,"onstopof2ndActivity",Toast.LENGTH_SHORT).show();
+        Log.i(String.valueOf(7),"onstopofSecondActivity");
     }
 }

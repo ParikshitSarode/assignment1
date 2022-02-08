@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toast.makeText(this,"oncreateofFirstActivity",Toast.LENGTH_SHORT).show();
+        Log.i(String.valueOf(1),"oncreateofFirstActivity");
         next1 = (Button) findViewById(R.id.button);
         next2 = (Button)findViewById(R.id.button2);
         next3 = (Button)findViewById(R.id.button3);
@@ -183,6 +184,7 @@ public class MainActivity extends AppCompatActivity {
         super.onStart();
 
         Toast.makeText(this,"onstartoffirstActivity",Toast.LENGTH_SHORT).show();
+        Log.i(String.valueOf(2),"onstartofFirstActivity");
     }
 
     @Override
@@ -190,6 +192,7 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
 
         Toast.makeText(this,"onresumeoffirstActivity",Toast.LENGTH_SHORT).show();
+        Log.i(String.valueOf(3),"onresumeofFirstActivity");
     }
 
     @Override
@@ -197,6 +200,7 @@ public class MainActivity extends AppCompatActivity {
         super.onPause();
 
         Toast.makeText(this,"onpauseoffirstActivity",Toast.LENGTH_SHORT).show();
+        Log.i(String.valueOf(4),"onpauseofFirstActivity");
     }
 
     @Override
@@ -204,6 +208,7 @@ public class MainActivity extends AppCompatActivity {
         super.onRestart();
 
         Toast.makeText(this,"onrestopoffirstActivity",Toast.LENGTH_SHORT).show();
+        Log.i(String.valueOf(5),"onrestartofFirstActivity");
     }
 
     @Override
@@ -211,6 +216,7 @@ public class MainActivity extends AppCompatActivity {
         super.onDestroy();
 
         Toast.makeText(this,"ondestroyoffirstActivity",Toast.LENGTH_SHORT).show();
+        Log.i(String.valueOf(6),"ondestroyofFirstActivity");
     }
 
     @Override
@@ -218,6 +224,7 @@ public class MainActivity extends AppCompatActivity {
         super.onStop();
 
         Toast.makeText(this,"onstopoffirstActivity",Toast.LENGTH_SHORT).show();
+        Log.i(String.valueOf(7),"onstopofFirstActivity");
     }
 
     public void openactivity2() {
